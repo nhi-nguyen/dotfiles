@@ -118,3 +118,5 @@ map <F2> :%s/\#012/\r/g<CR>
 " Ctrl-\ Open the definition in a new vertical split
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+set cursorcolumn
+set cursorline
