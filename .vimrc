@@ -118,5 +118,20 @@ map <F2> :%s/\#012/\r/g<CR>
 " Ctrl-\ Open the definition in a new vertical split
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-set cursorcolumn
-set cursorline
+""set cursorcolumn
+"set cursorline
+
+call plug#begin('~/.vim/plugged')
+" Add maktaba and bazel to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+Plug 'wellle/context.vim'
+Plug 'bazelbuild/vim-ft-bzl'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Initialize plugin system
+call plug#end()
+
+" use 4-space, non-expanding tabs for Go, to match "go fmt"
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
